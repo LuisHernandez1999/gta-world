@@ -5,15 +5,15 @@ import { useState } from 'react';
 import { Box, Typography, Button, TextField } from '@mui/material';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
-const ResetPassword = () => {
+const Loginpage = () => {
     const [setInvalidEmail] = useState('');
     const router = useRouter();
-
+    
     
 
     const handleSubmit = (event) => {
         event.preventDefault(); 
-        router.push('/fornecedores/fornecedores_tabela');
+        router.push('../homepage/home');
     };
 
     const formik = useFormik({
@@ -106,7 +106,7 @@ const ResetPassword = () => {
 <Box 
                     sx={{
                         backgroundColor: 'white', // Cor do container
-                        borderRadius: '15px',
+                        borderRadius: '35px',
                         marginTop: '4rem',
                         padding: '2rem',
                         width: '90%',
@@ -198,24 +198,24 @@ const ResetPassword = () => {
                             />
 
 <Button
-    type="submit"
-    sx={{
-        width: '80%',
-        padding: '0.5rem 1rem',
-        color: 'white', // Cor do texto
-        fontSize: '15px', // Tamanho da fonte
-        borderRadius: '25px',
-        fontWeight: 'bold', // Tornar o texto mais destacado
-        textTransform: 'none',
-        
-        backgroundColor: '#0A1C28', // Fundo preto
-        '&:hover': {
-            backgroundColor: 'WHITE', // Tom mais claro de preto ao passar o mouse
-        },
-    }}
->
-    Entrar
-</Button>
+            type="submit"
+            onClick={() => router.push('/homepage/home')} // Redireciona para a página correta
+            sx={{
+                width: '80%',
+                padding: '0.5rem 1rem',
+                color: 'white', // Cor do texto
+                fontSize: '15px', // Tamanho da fonte
+                borderRadius: '25px',
+                fontWeight: 'bold', // Tornar o texto mais destacado
+                textTransform: 'none',
+                backgroundColor: '#0A1C28', // Fundo preto
+                '&:hover': {
+                    backgroundColor: 'WHITE', // Tom mais claro de preto ao passar o mouse
+                },
+            }}
+        >
+            Entrar
+        </Button>
                         </Box>
                     </form>
 
@@ -276,6 +276,7 @@ const ResetPassword = () => {
                     padding: '1rem',
                     marginTop: '17rem',
                     height: '100%', // Coloca o footer na parte inferior
+                    
                 }}
             >
                 <Typography variant="body2" sx={{ fontSize: '14px' }}>
@@ -287,4 +288,4 @@ const ResetPassword = () => {
     );
 };
 
-export default ResetPassword;
+export default Loginpage;
